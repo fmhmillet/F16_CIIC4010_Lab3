@@ -1,7 +1,11 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Insets;
 import java.awt.Polygon;
+import java.awt.Rectangle;
+import java.awt.geom.Line2D;
+import java.awt.geom.Point2D;
 
 import javax.swing.JPanel;
  
@@ -22,9 +26,11 @@ public class MyPanelClass extends JPanel {
                         int y2 = getHeight() - myInsets.bottom - 1;
                         int width = x2 - x1;
                         int height = y2 - y1;
- 
-                          //Paint the background
-                          g.setColor(Color.LIGHT_GRAY);
+                        Graphics2D g2 = (Graphics2D) g;
+                        
+                        
+                        //Paint the background
+                          g.setColor(Color.RED);
                           g.fillRect(x1, y1, width +1, height +1);
                         
 //                        //Draw a border
@@ -47,17 +53,34 @@ public class MyPanelClass extends JPanel {
 //                        g.setColor(Color.darkGray);
 //                        g.fillOval((x2-55)/2,(y2-55)/2, 55, 55);
 //                          
-//                          Polygon p = new Polygon();
-//                          p.addPoint(x1 + 5, y1 + 25);
-//                          p.addPoint(x1 + 20, y1 + 10);
-//                          p.addPoint(x1 + 35, y1 + 25);
-//                          p.addPoint(x1 + 25, y1 + 25);
-//                          p.addPoint(x1 + 25, y1 + 45);
-//                          p.addPoint(x1 + 15, y1 + 45);
-//                          p.addPoint(x1 + 15, y1 + 25);
-//                          g.setColor(Color.YELLOW);
-//                          g.fillPolygon(p);
+//                        Polygon p = new Polygon();
+//                        p.addPoint(x1 + 5, y1 + 25);
+//                        p.addPoint(x1 + 20, y1 + 10);
+//                        p.addPoint(x1 + 35, y1 + 25);
+//                        p.addPoint(x1 + 25, y1 + 25);
+//                        p.addPoint(x1 + 25, y1 + 45);
+//                        p.addPoint(x1 + 15, y1 + 45);
+//                        p.addPoint(x1 + 15, y1 + 25);
+//                        g.setColor(Color.YELLOW);
+//                        g.fillPolygon(p);
+                                       
+                          Rectangle.Double body1 = new Rectangle.Double(x1 + 0,y1 +32,300,32.0);
+                          g2.setColor(Color.white);
+                          g2.fill(body1);
                           
+                          Rectangle.Double body2 = new Rectangle.Double(x1 + 0,y1 +96,300,32.0);
+                          g2.fill(body2);
+                           
+                          Polygon p1 = new Polygon();
+                          p1.addPoint(x1 + 0, y1 + 0);
+                          p1.addPoint(x1 + 125, y1 + 80);
+                          p1.addPoint(x1 + 0, y1 + 0);
+                          p1.addPoint(x1 + 0, y1 + 160);
+                          p1.addPoint(x1 + 0, y1 + 160);
+                          p1.addPoint(x1 + 125, y1 + 80);
+                          g.setColor(Color.CYAN);
+                          g.fillPolygon(p1);
+                         
                           Polygon p2 = new Polygon();
                           p2.addPoint(x1 + 25, y1 + 73);
                           p2.addPoint(x1 + 41, y1 + 73);
@@ -71,5 +94,6 @@ public class MyPanelClass extends JPanel {
                           p2.addPoint(x1 + 38, y1 + 83);
                           g.setColor(Color.WHITE);
                           g.fillPolygon(p2);
+                                         
             }
 }
